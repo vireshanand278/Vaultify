@@ -1,0 +1,31 @@
+{
+  "name": "vaultify",
+  "version": "1.0.0",
+  "description": "it is the password manager backend project ",
+  "homepage": "https://github.com/vireshanand278/Vaultify#readme",
+  "bugs": {
+    "url": "https://github.com/vireshanand278/Vaultify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vireshanand278/Vaultify.git"
+  },
+  "license": "ISC",
+  "author": "vireshanand278",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "init":"node init/init.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.4",
+    "nodemon": "^3.1.14"
+  }
+}
