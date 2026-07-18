@@ -35,6 +35,10 @@ const loginUser=async(req,res)=>{
             return res.status(401).json({message:"Invalid email or password"});
         }
         const token=jwt.sign({ id: user._id },process.env.JWT_SECRET,{expiresIn:"1d" });
+        console.log("Token Length:", token.length);
+        console.log("Token:", JSON.stringify(token));
+
+
         res.status(200).json({message: "Login successful", token});
 
     }catch(error){
@@ -42,5 +46,16 @@ const loginUser=async(req,res)=>{
     }
 };
 
+const getProfile = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select("-password");
+        res.status(200).json({message: "User profile retrieved successfully", user});
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
 
-module.exports={registerUser,loginUser};
+    }
+};
+
+module.exports={registerUser,loginUser,getProfile};
